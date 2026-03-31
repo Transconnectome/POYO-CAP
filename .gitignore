@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_*
+
+# Checkpoints (too heavy)
+*.ckpt
+*.pt
+*.pth
+
+# NFS lock files (never commit these!)
+.nfs*
+
+# Claude Code workspace
+.claude/
+excalidraw-diagram-skill/
+
+# Logs / SLURM output
+logs/slurm/
+
+# Data (raw / processed, too large)
+data/raw/
+data/processed/
+
+# Diagram generation scripts (not needed by users)
+gen_excalidraw.py
+make_kirby.py
+*.excalidraw
+
+# Camera-ready PDF (keep locally, not for public repo)
+docs/_ICLR_2026__POYO_CAP__camera_ready_.pdf
+
+# Misc
+.DS_Store
+*.swp
+*.swo
+.env
+wandb/

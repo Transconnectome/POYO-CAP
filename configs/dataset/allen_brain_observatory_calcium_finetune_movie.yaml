@@ -1,0 +1,13 @@
+- selection:
+    - dandiset: "allen_brain_observatory_calcium"
+
+  config:
+    sampling_intervals_modifier: |
+      sampling_intervals = sampling_intervals
+    multitask_readout:
+      - decoder_id: NATURAL_MOVIE_ONE
+        metrics:
+          - metric: SSIM
+      # - decoder_id: DRIFTING_GRATINGS
+      #   metrics:
+      #     - metric: accuracy

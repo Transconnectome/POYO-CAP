@@ -1,0 +1,56 @@
+# Path: configs/finetune_allen_bo_movie_dim_1024.yaml
+defaults:
+  - _self_
+  - model: capoyo1.3M_finetune_movie_dim_1024.yaml
+  - dataset: allen_brain_observatory_calcium_finetune_movie.yaml
+
+train_transforms:
+  - _target_: kirby.transforms.UnitDropout
+    field: "calcium_traces.df_over_f"
+    min_units: 10
+    mode_units: 50
+    max_units: 300
+    tail_right: 100
+    peak: 50
+    M: 50
+
+data_root: /path/to/data/processed  # Override via command line: data_root=<YOUR_DATA_ROOT>
+seed: 42
+batch_size: 32
+eval_epochs: 1
+steps: 0  # Note we either specify epochs or steps, not both.
+epochs: 25
+base_lr: 1.5625e-5
+weight_decay: 0.0001
+# Fraction of epochs to warmup for.
+pct_start: 0.5
+num_workers: 32
+log_dir: ./logs
+name: finetune_dim_1024_movie
+precision: 32
+nodes: 1
+gpus: auto
+patch_size: 1
+# Where to resume/finetune from. Set ckpt_path to the pretrained checkpoint.
+# Download pretrained weights and provide the full path here.
+
+test_ckpt: null
+ckpt_path: null  # Path to pretrained checkpoint, e.g. /path/to/pretrain/epoch=38-step=97656.ckpt
+pretrain : false
+continue_learning : false
+small_model : false
+task : movie_decoding_one
+sequence_length : 0.033
+# Finetuning configuration:
+finetune: true
+# Num of epochs to freeze perceiver network while finetuning
+# -1 => Keep frozen, i.e. perform Unit-identification
+#  0 => Train everything
+# >0 => Only train unit/session embeddings for first few epochs,
+#       and then train everything
+freeze_perceiver_until_epoch: 0
+freeze_encoder : 0
+
+# W&B logging — set your entity and project here, or via environment variables.
+# wandb_entity: <your_wandb_entity>
+wandb_project: poyo_cap
