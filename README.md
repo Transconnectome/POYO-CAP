@@ -196,7 +196,7 @@ python train.py \
 
 ## Model Configuration
 
-The 1.3M-parameter POYO-CAP model uses a [POYO+](https://arxiv.org/abs/2407.09430) (Perceiver IO) backbone with rotary positional embeddings:
+The 1.3M-parameter POYO-CAP model uses a [POYO+](https://arxiv.org/abs/2407.09430) backbone with rotary positional embeddings:
 
 ```yaml
 # configs/model/capoyo1.3M_pretrain_dim_1024_masking_ratio_50.yaml
