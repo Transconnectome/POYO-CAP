@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="kirby_cap.png" width="120" alt="POYO-CAP mascot"/>
+<img src="docs/kirby_cap.png" width="120" alt="POYO-CAP mascot"/>
 
 # POYO-CAP
 
@@ -58,7 +58,7 @@ This curriculum yields **12–13 % relative SSIM improvement** over from-scratch
 ## Training Pipeline
 
 <div align="center">
-<img src="poyo_cap_pretrain_finetune.png" width="900" alt="POYO-CAP pretrain & finetune pipeline"/>
+<img src="docs/poyo_cap_pretrain_finetune.png" width="900" alt="POYO-CAP pretrain & finetune pipeline"/>
 <br/>
 <em>Config-level data flow for pretraining (left) and finetuning (right).</em>
 </div>
